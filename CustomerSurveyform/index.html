@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Customer Survey Form</h1>
+  </header>
+  <div class="container">
+    
+    <form id="surveyForm">
+      <div class="form-group">
+        <label for="firstName">First Name:</label>
+        <input type="text" id="firstName" required>
+      </div>
+      <div class="form-group">
+        <label for="lastName">Last Name:</label>
+        <input type="text" id="lastName" required>
+      </div>
+      <div class="form-group">
+        <label for="dob">Date of Birth:</label>
+        <input type="date" id="dob" required>
+      </div>
+      <div class="form-group">
+        <label for="country">Country:</label>
+        <select id="country" required>
+          <option value="">Select Country</option>
+          <option value="USA">United States</option>
+          <option value="CA">Canada</option>
+          <option value="UK">United Kingdom</option>
+          <!-- Add more countries as needed -->
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Gender:</label>
+        <br>
+        <div>
+          <input type="checkbox" id="male" name="gender" value="Male">
+          <label for="male">Male</label>
+          <input type="checkbox" id="female" name="gender" value="Female">
+          <label for="female">Female</label>
+        </div>
+        <div>
+          
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="profession">Profession:</label>
+        <input type="text" id="profession" required>
+      </div>
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input type="email" id="email" required>
+      </div>
+      <div class="form-group">
+        <label for="mobile">Mobile Number:</label>
+        <input type="tel" id="mobile" required>
+      </div><br>
+      <div class="form-group">
+        <button type="submit" id="submitBtn">Submit</button>
+        <button type="reset" id="resetBtn">Reset</button>
+      </div>
+    </form>
+  </div>
+  <footer>
+    <p>&copy; 2023 Customer Survey Form. All Rights Reserved | Desgin by <span style="color: blue;"> <a href="https://adepushivani.github.io/MyPortfolio/index.html">Adepu Shivani</a></span>.</p>
+  </footer>
+  <script>
+    document.getElementById('surveyForm').addEventListener('submit', function (event) {
+      event.preventDefault();
+      // Perform any necessary validations here
+      const confirmationMessage = `
+        First Name: ${document.getElementById('firstName').value}
+        Last Name: ${document.getElementById('lastName').value}
+        Date of Birth: ${document.getElementById('dob').value}
+        Country: ${document.getElementById('country').value}
+        Gender: ${document.querySelectorAll('input[name="gender"]:checked').length > 0 ? "Male" : "Female"}
+        Profession: ${document.getElementById('profession').value}
+        Email: ${document.getElementById('email').value}
+        Mobile Number: ${document.getElementById('mobile').value}
+      `;
+      alert(confirmationMessage);
+      event.target.reset();
+    });
+  </script>
+</body>
+</html>
